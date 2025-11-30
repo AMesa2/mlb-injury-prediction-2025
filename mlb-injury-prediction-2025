@@ -1,0 +1,40 @@
+mlb-injury-prediction-2025/
+│
+├── README.md
+├── requirements.txt
+│
+├── data/
+│   ├── raw/
+│   ├── cleaned/
+│   └── engineered/
+│
+├── notebooks/
+│   ├── 01_data_cleaning.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_modeling_logreg_rf_xgb.ipynb
+│   ├── 05_model_evaluation.ipynb
+│   └── 06_dashboard_prototype.ipynb
+│
+├── scripts/
+│   ├── clean_data.py
+│   ├── engineer_features.py
+│   ├── train_models.py
+│   ├── evaluate_models.py
+│   └── utils.py
+│
+├── models/
+│   ├── logistic_regression.pkl
+│   ├── random_forest.pkl
+│   ├── xgboost.pkl
+│   └── model_configs.json
+│
+├── results/
+│   ├── metrics.csv
+│   ├── feature_importance.png
+│   ├── roc_curve.png
+│   ├── pr_curve.png
+│   └── confusion_matrix.png
+│
+└── report/
+    └── Sprint3_Report.pdf
