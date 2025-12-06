@@ -115,8 +115,4 @@ Information Science (Machine Learning)
 
 ---
 
-# ⭐ Now check GitHub — it **WILL** be bold, structured, clean
-
-Because now GitHub sees:
-
 
