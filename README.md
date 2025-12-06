@@ -89,12 +89,13 @@ Stored in `/results`:
 ---
 
 ## ▶️ Run Instructions
-```bash
 pip install -r requirements.txt
 python scripts/clean_data.py
 python scripts/engineer_features.py
 python scripts/train_models.py
 python scripts/evaluate_models.py
+
+---
 
 📍 Sprint Status
 Sprint	Status
@@ -102,6 +103,9 @@ Sprint 1 — Data Acquisition	✔
 Sprint 2 — EDA Analysis	✔
 Sprint 3 — ML Development	✔
 Sprint 4 — Dashboard + Interpretation	⬜
+
+---
+
 👤 Author
 
 Adonis Mesa
