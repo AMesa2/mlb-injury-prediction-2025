@@ -1,149 +1,118 @@
-⚾ MLB Pitcher Injury-Risk Machine Learning Pipeline
-Detecting workload-based injury risk using Statcast data (2015–2024)
+# ⚾ MLB Pitcher Injury-Risk Machine Learning Pipeline
+### Detecting workload-based injury risk using Statcast data (2015–2024)
 
+---
 
-
-
-
-
-
-
-🥇 Project Overview
-
-Pitcher injuries dramatically affect team performance, roster structure, and long-term player value. This project applies machine learning to identify early workload stress patterns that are strongly associated with increased injury risk.
+## 🥇 Project Overview
+Pitcher injuries dramatically affect team performance, roster structure, and player availability. This project applies machine learning to identify early workload stress patterns that are strongly associated with increased injury risk.
 
 The end-to-end pipeline includes:
 
-data ingestion (Statcast)
+- data ingestion (Statcast)
+- cleaning & processing
+- engineered biomechanical features
+- model training + evaluation
+- classification metrics
+- ROC, PR, confusion matrices
+- deployed ML artifacts
 
-cleaning & processing
+---
 
-engineered biomechanical features
+## 🎯 Project Goal
+Develop predictive models to identify high-risk workload patterns using measurable indicators such as:
 
-model training + evaluation
-
-ROC, PR, confusion matrices
-
-deployed ML artifacts
-
-🎯 Project Goal
-
-Develop predictive models to detect high-risk workload patterns using measurable indicators such as:
-
-rolling velocity decline
-
-cumulative pitch counts
-
-spin-rate reduction
-
-short-term fatigue
-
-workload accumulation
+- rolling velocity decline
+- cumulative pitch counts
+- spin-rate reduction
+- short-term fatigue
+- workload accumulation
 
 These signals are supported by injury research in MLB biomechanics and sports science.
 
-⚠ Important (Sprint 3 Context)
+---
 
-Public injury logs do not contain pitcher-level IDs, so Sprint 3 uses a validated proxy definition of injury-risk:
+## ⚠️ Sprint 3 Context (Important)
+Public MLB injury logs do not contain pitcher-specific IDs, so Sprint 3 uses a validated proxy risk definition:
 
-high cumulative workload (top 10%) OR large velocity drop (bottom 10%) in a recent window
+> high cumulative workload (top 10%) OR large velocity drop (bottom 10%)
 
-Interpretation:
-Models predict elevated biomechanical stress, not medical injury events.
+Models therefore predict elevated workload stress, not literal medical injuries.
 
-This approach is acceptable and academically justified for Sprint 3.
+---
 
-📊 Results Summary (Sprint 3)
-Model	AUC	Notes
-Logistic Regression	0.95	strong linear signal
-Random Forest	1.00	perfect separation
-XGBoost	0.9999	best overall
+## 📊 Performance (Sprint 3)
 
-➡ Non-linear models strongly outperform linear ones.
-➡ Workload variables clearly separate high-risk vs low-risk states.
+| Model | AUC | Notes |
+|---|---|---|
+| Logistic Regression | 0.95 | strong linear signal |
+| Random Forest | 1.00 | perfect separation |
+| XGBoost | 0.9999 | best overall |
 
-🔬 Engineered Features
-Feature	Meaning
-rolling velocity (5-game)	fatigue indicator
-cumulative pitch count	workload
-spin change	mechanical stress
-velo delta	fatigue deterioration
-workload index	biomechanical strain
-📂 Repository Structure
-mlb-injury-prediction-2025/
+Non-linear models outperform linear ones  
+Engineered workload features are highly predictive  
+
+---
+
+## 📈 Figures Produced
+Stored in `/results`:
+
+- ROC curves
+- Precision-Recall curves
+- Confusion matrices
+- Feature importance
+
+---
+
+## 🧠 Engineered Features
+- rolling mean velocity (fatigue)
+- velocity delta (deterioration)
+- release speed
+- spin change
+- cumulative pitch count
+- workload index
+
+---
+
+## 📂 Repository Structure
+  mlb-injury-prediction-2025/
 │
 ├── data/
-│   ├── raw/
-│   ├── cleaned/
-│   └── engineered/
+│ ├── raw/
+│ ├── cleaned/
+│ └── engineered/
 │
-├── scripts/          # cleaning, feature engineering, training, evaluation
-├── models/           # trained models + scalers
-├── results/          # evaluation figures + metrics
-└── README.md
+├── models/
+├── results/
+└── scripts/
 
-▶️ Run Pipeline
+
+---
+
+## ▶️ Run Instructions
+```bash
 pip install -r requirements.txt
 python scripts/clean_data.py
 python scripts/engineer_features.py
 python scripts/train_models.py
 python scripts/evaluate_models.py
 
-📈 Figures Produced
-
-Stored in /results:
-
-ROC (3 models)
-
-PR (3 models)
-
-Confusion matrices
-
-Model metrics summary
-
-Feature importance
-
-🧠 Key Takeaways
-
-What works
-
-rolling metrics capture fatigue well
-
-velocity decline is a strong risk indicator
-
-workload index strongly predicts deterioration
-
-What this means
-
-MLB workload stress is detectable BEFORE injury events happen.
-
-🧩 Sprint Completion
+📍 Sprint Status
 Sprint	Status
-Sprint 1 – Data	✔
-Sprint 2 – EDA	✔
-Sprint 3 – ML Pipeline	✔
-Sprint 4 – Model UI / Dashboard	⬜
-📍 Author
+Sprint 1 — Data Acquisition	✔
+Sprint 2 — EDA Analysis	✔
+Sprint 3 — ML Development	✔
+Sprint 4 — Dashboard + Interpretation	⬜
+👤 Author
 
 Adonis Mesa
-Information Science – University of Maryland
-Data Science / Machine Learning track
+University of Maryland
+Information Science (Machine Learning)
 
-⭐ Next Steps (Sprint 4)
 
-explainable ML (SHAP)
+---
 
-dashboard (Streamlit / Gradio)
+# ⭐ Now check GitHub — it **WILL** be bold, structured, clean
 
-player comparison views
+Because now GitHub sees:
 
-pitch-type specific risk
 
-season-level workload modeling
-
-If you want, I can:
-✔ add badges
-✔ add a banner image
-✔ add MLB logos
-✔ link to Baseball Savant
-✔ create a professional GitHub Pages portfolio page from this project.
